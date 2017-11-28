@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css" />
+    <title>This is the index page</title>
+</head>
+<body>
+<section class="sectioncenter textcenter entresection">
+    Au Gamer Apaisé
+</section>
+
+<div class="row">
+        <svg width="1200" height="500"></svg>
+</div>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="moment.js"></script>
+<script>
+var svg = d3.select("svg"),
+    margin = {top: 20, right: 20, bottom: 30, left: 100},
+        width = +svg.attr("width") - margin.left - margin.right,
+        height = +svg.attr("height") - margin.top - margin.bottom,
+        g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var parseTime = d3.timeParse("%d-%b-%y");
+
+var x = d3.scaleTime()
+    .rangeRound([0, width]);
+
+var nest = d3.nest()
+    .key(function(d){return d.date;});
+    .rollup(function (leaves) {
+        return{
+            "total_spec": d3.mean(leaves,function (d) {
+                return parseFloat(d.nb_spec);
+            })
+        }
+});
+    console.log(nest);
+
+var y = d3.scaleLinear()
+    .rangeRound([height, 0]);
+
+var line = d3.line()
+    .x(function(d) { return x(d.date); })
+    .y(function(d) { return y(d.nb_spec); });
+
+d3.tsv("sky_stats.txt", function(d) {
+  d.date = parseTime(d.date);
+  d.nb_spec = +d.nb_spec;
+  return d;
+  },
+function(error, data) {
+  if (error) throw error;
+
+  x.domain(d3.extent(data, function(d) { return d.date; }));
+  y.domain(d3.extent(data, function(d) { return d.nb_spec; }));
+
+  g.append("g")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x))
+    .select(".domain")
+      .remove();
+
+  g.append("g")
+      .call(d3.axisLeft(y))
+    .append("text")
+      .attr("fill", "#000")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", "0.71em")
+      .attr("text-anchor", "end")
+      .text("Nb spectateurs");
+
+  g.append("path")
+      .datum(data)
+      .attr("fill", "none")
+      .attr("stroke", "steelblue")
+      .attr("stroke-linejoin", "round")
+      .attr("stroke-linecap", "round")
+      .attr("stroke-width", 1.5)
+      .attr("d", line);
+});
+
+</script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+</body>
+</html>
+
