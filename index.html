@@ -15,8 +15,16 @@
     Au Gamer Apaisé
 </section>
 
-
-
+<div class="row">
+    <div class="col-sm"></div>
+    <div class="col-sm">
+        <input type="checkbox" class="bf" checked>Battlefield
+        <br>
+        <input id="display1" type="checkbox" class="check_sky" checked>Skyrim
+        <label for="check_sky"</label>
+        <br>
+    </div>
+</div>
 <div class="row">
     <svg width="1200" height="500"></svg>
 </div>
@@ -25,7 +33,6 @@
 
 <script src="scripts/moment.js"></script>
 
-<script src="scripts/linechart.js"></script>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -37,6 +44,20 @@
         integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
         crossorigin="anonymous"></script>
 
+<script src="scripts/linechart.js"></script>
+<script>
+    var parseTime = d3.timeParse("%d-%b-%y" + "%H");
+
+    d3.tsv("data/sky_stats.txt", function (d) {
+            d.date = parseTime(d.date + d.hour);
+            d.nb_spec = +d.nb_spec;
+            return d;
+        },
+        function (error, data) {
+            if (error) throw error;
+            draw_linechart(data);
+        });
+</script>
 </body>
 </html>
 
