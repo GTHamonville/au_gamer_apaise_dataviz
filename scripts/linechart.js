@@ -88,7 +88,7 @@ function draw_linechart(data) {
         .attr("d", line);
 
 
-    //second line___________________________
+    //Battlefield___________________________
 
     d3.tsv("data/bf_stats.txt", function (d) {
             d.date = parseTime(d.date + d.hour);
@@ -140,6 +140,8 @@ function draw_linechart(data) {
                 .attr("d", line);
         });
 
+    //Star wars
+
     d3.tsv("data/sw_stats.txt", function (d) {
             d.date = parseTime(d.date + d.hour);
             d.nb_spec = +d.nb_spec;
@@ -182,6 +184,7 @@ function draw_linechart(data) {
             g.append("path")
                 .datum(nested_data)
                 .attr("fill", "none")
+                .attr("class","sw")
                 .attr("stroke", "violet")
                 .attr("stroke-linejoin", "round")
                 .attr("stroke-linecap", "round")

@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="style.css"/>
     <title>This is the index page</title>
 </head>
+
+
 <body>
 <section class="sectioncenter textcenter entresection">
     Au Gamer Apaisé
@@ -18,11 +20,13 @@
 <div class="row">
     <div class="col-sm"></div>
     <div class="col-sm">
-        <input type="checkbox" class="bf" checked>Battlefield
-        <br>
-        <input id="display1" type="checkbox" class="check_sky" checked>Skyrim
-        <label for="check_sky"</label>
-        <br>
+        <input type="checkbox" class="bf_line" checked>Battlefield
+    </div>
+    <div class="col-sm">
+        <input type="checkbox" class="sky_line" checked>Skyrim
+    </div>
+    <div class="col-sm">
+        <input type="checkbox" class="sw_line" checked>Star Wars
     </div>
 </div>
 <div class="row">
@@ -30,9 +34,10 @@
 </div>
 
 <script src="https://d3js.org/d3.v4.min.js"></script>
-
 <script src="scripts/moment.js"></script>
 
+<script src="scripts/jquery-3.2.1.min.js"></script>
+<script src="scripts/display_line.js"></script>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -58,6 +63,12 @@
             draw_linechart(data);
         });
 </script>
+
+<script>
+
+
+</script>
+
 </body>
 </html>
 
