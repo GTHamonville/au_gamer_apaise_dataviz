@@ -190,7 +190,6 @@ button:focus {
 /*--------------------*/
 
 #mu-hero {
-	background-image: url("assets/images/baniere.jpg");
 	display: inline;
 	float: left;
 	width: 100%;
@@ -1334,3 +1333,12 @@ h2 {
 
 
 
+body
+
+{
+
+	background-color: #dedede; /* Le fond de la page sera noir */
+
+	color: black; /* Le texte de la page sera blanc */
+
+}
