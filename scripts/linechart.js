@@ -45,6 +45,7 @@ function draw_linechart(data) {
     console.log(nested_data);
 
     var line = d3.line()
+        .curve(d3.curveBasis)
         .x(function (d) {
             return x(parse(d.key));
         })
