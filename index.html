@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css"/>
+    <title>This is the index page</title>
+</head>
+
+
+<body>
+<section class="sectioncenter textcenter entresection">
+    Au Gamer Apaisé
+</section>
+
+<div class="row">
+    <div class="col-sm"></div>
+    <div class="col-sm">
+        <input type="checkbox" class="bf_line" checked>Battlefield
+    </div>
+    <div class="col-sm">
+        <input type="checkbox" class="sky_line" checked>Skyrim
+    </div>
+    <div class="col-sm">
+        <input type="checkbox" class="sw_line" checked>Star Wars
+    </div>
+</div>
+<div class="row">
+    <div class="graph">
+    <svg id="svg1" width="1200" height="500"></svg>
+    </div>
+</div>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="scripts/moment.js"></script>
+
+<script src="scripts/jquery-3.2.1.min.js"></script>
+<script src="scripts/display_line.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+
+<script src="scripts/linechart.js"></script>
+<script>
+    var parseTime = d3.timeParse("%d-%b-%y" + "%H");
+
+    d3.tsv("data/sky_stats.txt", function (d) {
+            d.date = parseTime(d.date + d.hour);
+            d.nb_spec = +d.nb_spec;
+            return d;
+        },
+        function (error, data) {
+            if (error) throw error;
+            draw_linechart(data);
+        });
+</script>
+
+<script>
+
+
+</script>
+
+</body>
+</html>
+
