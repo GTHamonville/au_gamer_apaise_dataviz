@@ -1,76 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
-          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css"/>
-    <title>This is the index page</title>
-</head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Au Gamer Apaisé</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/icon" href="assets/images/favicon.png"/>
+    <!-- Font Awesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Slick slider -->
+    <link href="assets/css/slick.css" rel="stylesheet">
+    <!-- Theme color -->
+    <link id="switcher" href="assets/css/theme-color/default-theme.css" rel="stylesheet">
+
+    <!-- Main Style -->
+    <link href="style.css" rel="stylesheet">
+
+    <!-- Fonts -->
+
+    <!-- Open Sans for body font -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700,800" rel="stylesheet">
+	<!-- Montserrat for title -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+ 
+ 
+	
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  	
+  	<!-- Start Header -->
+	<header id="mu-hero" class="" role="banner">
+		<!-- Start menu  -->
+		<nav class="navbar navbar-fixed-top navbar-default mu-navbar">
+		  	<div class="container">
+			    <!-- Brand and toggle get grouped for better mobile display -->
+			    <div class="navbar-header">
+			      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			        <span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			      </button>
+
+			      <!-- Logo -->
+			      <a class="navbar-brand" href="index.html"Au Gamer Apaisé</a>
+
+			    </div>
+
+			    <!-- Collect the nav links, forms, and other content for toggling -->
+			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			      	<ul class="nav navbar-nav mu-menu navbar-right">
+			      		<li><a href="#mu-hero">Acceuil</a></li>
+				        <li><a href="#mu-about">Dataviz</a></li>
+			      	</ul>
+			    </div><!-- /.navbar-collapse -->
+		  	</div><!-- /.container-fluid -->
+		</nav>
+		<!-- End menu -->
+
+			<div class="container">
+				<div class="mu-hero-area">
+
+					<!-- Start hero featured area -->
+					<div class="mu-hero-featured-area">
+						<!-- Start center Logo -->
+						<div class="mu-logo-area">
+							<!-- text based logo -->
+							<a class="mu-logo" href="https://augamerapaise.fr/">Au Gamer Apaisé</a>
+							<!-- image based logo -->
+							<!-- <a class="mu-logo" href="#"><img src="assets/images/logo.jpg" alt="logo img"></a> -->
+						</div>
+						<!-- End center Logo -->
+
+						<div class="mu-hero-featured-content">
 
 
-<body>
-<section class="sectioncenter textcenter entresection">
-    Au Gamer Apaisé
-</section>
-
-<div class="row">
-    <div class="col-sm"></div>
-    <div class="col-sm">
-        <input type="checkbox" class="bf_line" checked>Battlefield
-    </div>
-    <div class="col-sm">
-        <input type="checkbox" class="sky_line" checked>Skyrim
-    </div>
-    <div class="col-sm">
-        <input type="checkbox" class="sw_line" checked>Star Wars
-    </div>
-</div>
-<div class="row">
-    <div class="graph">
-    <svg id="svg1" width="1200" height="500"></svg>
-    </div>
-</div>
-
-<script src="https://d3js.org/d3.v4.min.js"></script>
-<script src="scripts/moment.js"></script>
-
-<script src="scripts/jquery-3.2.1.min.js"></script>
-<script src="scripts/display_line.js"></script>
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
-        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
-        crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
-        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
-        crossorigin="anonymous"></script>
-
-<script src="scripts/linechart.js"></script>
-<script>
-    var parseTime = d3.timeParse("%d-%b-%y" + "%H");
-
-    d3.tsv("data/sky_stats.txt", function (d) {
-            d.date = parseTime(d.date + d.hour);
-            d.nb_spec = +d.nb_spec;
-            return d;
-        },
-        function (error, data) {
-            if (error) throw error;
-            draw_linechart(data);
-        });
-</script>
-
-<script>
+							<h2> Le jeu de données utilisé est issu du travail de Mehdi Kaytoue, chercheur à l’inrs dans l’équipe de Data mining. Il s’agit d’un rassemblement de données issu de Twitch où pendant 3 mois, monsieur Kaytoue s’est amusé à récupérer toutes les 5 minutes les informations de l’ensemble des streams en ligne. Les informations rassemble: la date, l’heure, le jeu, le titre du stream, le nombre de spectateurs et la ville d’où est diffusé le stream.
+							</h2>
 
 
-</script>
+						</div>
+					</div>
+					<!-- End hero featured area -->
 
-</body>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- End Header -->
+	
+	<!-- Start main content -->
+	<main role="main">
+		<!-- Start About -->
+		<section id="mu-about">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="mu-about-area">
+							<!-- Start Feature Content -->
+							<div class="row">
+
+								<div class="col-md-6">
+
+									<div class="row">
+										<div class="col-sm"></div>
+										<div class="col-sm">
+											<input type="checkbox" class="bf_line" checked>Battlefield
+										</div>
+										<div class="col-sm">
+											<input type="checkbox" class="sky_line" checked>Skyrim
+										</div>
+										<div class="col-sm">
+											<input type="checkbox" class="sw_line" checked>Star Wars
+										</div>
+									</div>
+									<div class="row">
+										<svg width="1200" height="500"></svg>
+									</div>
+
+									<script src="https://d3js.org/d3.v4.min.js"></script>
+									<script src="scripts/moment.js"></script>
+
+									<script src="scripts/jquery-3.2.1.min.js"></script>
+									<script src="scripts/display_line.js"></script>
+
+									<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+											integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+											crossorigin="anonymous"></script>
+									<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+											integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+											crossorigin="anonymous"></script>
+									<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+											integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+											crossorigin="anonymous"></script>
+
+									<script src="scripts/linechart.js"></script>
+									<script>
+                                        var parseTime = d3.timeParse("%d-%b-%y" + "%H");
+
+                                        d3.tsv("data/sky_stats.txt", function (d) {
+                                                d.date = parseTime(d.date + d.hour);
+                                                d.nb_spec = +d.nb_spec;
+                                                return d;
+                                            },
+                                            function (error, data) {
+                                                if (error) throw error;
+                                                draw_linechart(data);
+                                            });
+									</script>
+
+									<script>
+
+
+									</script>
+
+									</div>
+								</div>
+							</div>
+							<!-- End Feature Content -->
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End About -->
+
+	
+	<!-- End main content -->	
+			
+			
+	<!-- Start footer -->
+	<footer id="mu-footer" role="contentinfo">
+			<div class="container">
+				<div class="mu-footer-area">
+					<div class="mu-footer-top">
+						<div class="mu-social-media">
+							<a href="https://www.facebook.com/augamerapaise/"><i class="fa fa-facebook"></i></a>
+						</div>
+			</div>
+
+	</footer>
+	<!-- End footer -->
+
+	
+	
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!-- Bootstrap -->
+    <script src="assets/js/bootstrap.min.js"></script>
+	<!-- Slick slider -->
+    <script type="text/javascript" src="assets/js/slick.min.js"></script>
+    <!-- Event Counter -->
+    <script type="text/javascript" src="assets/js/jquery.countdown.min.js"></script>
+    <!-- Ajax contact form  -->
+    <script type="text/javascript" src="assets/js/app.js"></script>
+  
+       
+	
+    <!-- Custom js -->
+	<script type="text/javascript" src="assets/js/custom.js"></script>
+
+	
+	
+    
+  </body>
 </html>
-
