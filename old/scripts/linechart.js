@@ -102,12 +102,6 @@ function draw_linechart(data) {
 
             console.log(data);
             threshold = 300;
-            date_start = 0;
-            data.forEach(function (d) {
-                if (d.nb_spec == 1000 && date_start == 0) {
-                    date_start = d.date;
-                }
-            });
             data = data.filter(function (d) {
                 //return d.date > date_start;
                 return true;
@@ -154,12 +148,7 @@ function draw_linechart(data) {
 
             console.log(data);
             threshold = 300;
-            date_start = 0;
-            data.forEach(function (d) {
-                if (d.nb_spec == 1000 && date_start == 0) {
-                    date_start = d.date;
-                }
-            });
+
             data = data.filter(function (d) {
                 //return d.date > date_start;
                 return true;
