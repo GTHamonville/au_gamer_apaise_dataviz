@@ -46,6 +46,13 @@
             fill: #5ca3c1;
         }
 
+        text {
+            transform: translateY(-30px);
+            }
+
+        .axis--x text {
+            transform: translateY(8px) translateX(8px) rotate(45deg);
+        }
     </style>
 </head>
 <body>
@@ -54,7 +61,7 @@
 
     var margin = {top: 30, right: 10, bottom: 60, left: 200},
         width = 900 - margin.left - margin.right,
-        height = 400 - margin.top - margin.bottom;
+        height = 700 - margin.top - margin.bottom;
 
     // Percent two area charts can overlap
     var overlap = 0.2;
@@ -139,7 +146,6 @@
             .attr('transform', 'translate(0,' + height + ')')
             .call(xAxis)
             .selectAll("text")
-            .attr("transform", "rotate(45)", "translate('60')");
 
         svg.append('g').attr('class', 'axis axis--game')
             .call(gameAxis);
@@ -181,8 +187,11 @@
 
     var dataFlat = [];
 
-    var files = ["League of Legends", "Assassin's Creed", "StarCraft II", "World of Warcraft", "Heroes of Newerth", "Call of Duty", "Minecraft",
-    "Battlefield", "Halo", "Street Fighter", "Dota", "Gears of War", "Dark Souls", "Zelda"];
+    var files = [
+ "Battlefield", "Call of Duty","League of Legends", "Minecraft",
+        "Star Wars", "Starcraft II", "The Elder Scrolls", "World of Warcraft"
+
+        ];
     var nloaded = 0;
 
     files.forEach(function (f) {
