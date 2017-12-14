@@ -1,0 +1,81 @@
+body
+
+{
+
+    background-color: black; /* changement couleur du fond */
+
+    color: red; /* changement couleur text */
+
+}
+h1
+{
+text-align: center;
+margin-top: 20px; /*ecartement du titre en hauteur*/
+color: white;
+}
+
+<head>
+
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        svg {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .axis .domain {
+            display: none;
+        }
+
+        .axis--x text {
+            fill: #999;
+        }
+
+        .axis--x line {
+            stroke: #aaa;
+        }
+
+        .axis--game .tick line {
+            display: none;
+        }
+
+        .axis--game text {
+            font-size: 12px;
+            fill: #777;
+        }
+
+        .axis--game .tick:nth-child(odd) text {
+            fill: #222;
+        }
+
+        .line {
+            fill: none;
+            stroke: #fff;
+        }
+
+        .area {
+            fill: #448cab;
+        }
+
+        .game:nth-child(odd) .area {
+            fill: #5ca3c1;
+        }
+
+        text {
+            transform: translateY(-30px);
+            }
+
+        .axis--x text {
+            transform: translateY(8px) translateX(8px) rotate(45deg);
+        }
+    </style>
+    h1
+    {
+    color: white;
+    font-weight: bold;
+    text-decoration: underline;
+    width:430px;
+    background-color:black;
+    margin:auto;
+    }
+
