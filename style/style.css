@@ -15,6 +15,8 @@ color: white;
         svg {
             display: block;
             background-color: white;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .axis .domain {
@@ -73,9 +75,10 @@ color: white;
 
 /* The switch - the box around the slider */
 .switch {
-    margin:auto;
+    margin-left:auto;
+    margin-right: auto;
     position: relative;
-
+    padding-left:10px;
     display: inline-block;
     width: 60px;
     height: 34px;
@@ -133,11 +136,10 @@ input:checked + .slider:before {
 }
 
 #bouton {
-    padding: 10px;
+    padding: 20px;
     margin-left: auto;
     margin-right: auto;
     background-color: white;
-    width: 1000px;
 }
 
 #joyplot {padding-top: 30px}
@@ -160,3 +162,7 @@ input:checked + .slider:before {
 
 .center-switch {margin: auto;
                 max-width: 250px}
+
+#variateur{
+    margin-left: 100px;
+}
