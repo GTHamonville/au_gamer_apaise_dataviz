@@ -12,7 +12,7 @@ function draw_joy(dataFlat, streamer) {
     if (streamer) {
         key = "nb_streamer_avg";
     }
-    var margin = {top: 30, right: 10, bottom: 80, left: 200},
+    var margin = {top: 30, right: 20, bottom: 80, left: 200},
         width = 900 - margin.left - margin.right,
         height = 760 - margin.top - margin.bottom;
 

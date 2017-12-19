@@ -2,10 +2,8 @@ body
 
 {
 
-    background-color: #ffffff; /* changement couleur du fond */
-
-    color: red; /* changement couleur text */
-
+background-image: url("wood_texture.jpg");
+background-size: 100%;
 }
 h1
 {
@@ -16,7 +14,7 @@ color: white;
 
         svg {
             display: block;
-            margin: 0 auto;
+            background-color: white;
         }
 
         .axis .domain {
@@ -24,7 +22,7 @@ color: white;
         }
 
         .axis--x text {
-            fill: #999;
+            fill: #000;
         }
 
         .axis--x line {
@@ -94,7 +92,7 @@ color: white;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: crimson;
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -136,6 +134,10 @@ input:checked + .slider:before {
 
 #bouton {
     padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    width: 1000px;
 }
 
 #joyplot {padding-top: 30px}
@@ -155,3 +157,6 @@ input:checked + .slider:before {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+.center-switch {margin: auto;
+                max-width: 250px}

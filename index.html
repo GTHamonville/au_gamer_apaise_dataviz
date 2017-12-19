@@ -7,31 +7,27 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
 </head>
-<body>
+
 
 <div class="row"><h1>Titre</h1></div>
 
-
-<div class="row">
-    <div class="col col-offset-1"></div>
-    <div id="bouton" class="col col-offset-2">
-        Spectateurs
-    <label class="switch">
-
-  		<input id="cb" type="checkbox" name="change" onchange="reload(this)"/>
-  		<span class="slider round"></span>
-
-	</label>
-           Streamers
+<div class="center-switch">
+    <div class="row">
+        <div id="bouton" class="col">
+            Spectateurs
+            <label class="switch">
+      		<input id="cb" type="checkbox" name="change" onchange="reload(this)"/>
+      		<span class="slider round"></span>
+    	    </label>
+               Streamers
+        </div>
     </div>
-    <div class="col"></div>
 </div>
+    <div class="col"></div>
 
     <div class="row">
-        <div class="col text-center">
-
-            <svg id="joyplot" width="900" height="760"></svg>
-        </div>
+            <div class="col-1"></div>
+            <svg id="joyplot" width="1000" height="760"></svg>
     </div>
 
 <script
