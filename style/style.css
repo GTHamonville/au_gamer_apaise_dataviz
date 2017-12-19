@@ -140,3 +140,8 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
+#bouton {
+    padding: 10px;
+}
+
+#joyplot {padding-top: 30px}

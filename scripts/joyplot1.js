@@ -9,12 +9,12 @@ function reload(d) {
 
 
 
-      var margin = {top: 30, right: 10, bottom: 60, left: 200},
+      var margin = {top: 50, right: 10, bottom: 60, left: 200},
         width = 900 - margin.left - margin.right,
-        height = 700 - margin.top - margin.bottom;
+        height = 760 - margin.top - margin.bottom;
 
     // Percent two area charts can overlap
-    var overlap = 0.1;
+    var overlap = 0.3;
 
     var formatTime = d3.timeFormat("%d-%b-%Y");
 
@@ -201,7 +201,7 @@ var margin = {top: 30, right: 10, bottom: 60, left: 200},
         height = 700 - margin.top - margin.bottom;
 
     // Percent two area charts can overlap
-    var overlap = 0.1;
+    var overlap = 0.2;
 
     var formatTime = d3.timeFormat("%d-%b-%Y");
 
