@@ -49,13 +49,7 @@ color: white;
             stroke: #fff;
         }
 
-        .area {
-            fill: #448cab;
-        }
 
-        .game:nth-child(odd) .area {
-            fill: #5ca3c1;
-        }
 
         text {
             transform: translateY(-30px);
@@ -145,3 +139,19 @@ input:checked + .slider:before {
 }
 
 #joyplot {padding-top: 30px}
+
+.loading {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
