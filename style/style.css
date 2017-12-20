@@ -1,148 +1,146 @@
-body
+body {
 
-{
-
-background-image: url("wood_texture.jpg");
-background-size: 100%;
-}
-h1
-{
-text-align: center;
-margin-top: 20px; /*ecartement du titre en hauteur*/
-color: white;
+    background-image: url("wood_texture.jpg");
+    background-size: 100%;
 }
 
-        svg {
-            display: block;
-            background-color: white;
-            margin-left: auto;
-            margin-right: auto;
-        }
+svg {
+    display: block;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
 
-        .axis .domain {
-            display: none;
-        }
+.axis .domain {
+    display: none;
+}
 
-        .axis--x text {
-            fill: #000;
-        }
+.axis--x text {
+    fill: #000;
+}
 
-        .axis--x line {
-            stroke: #aaa;
-        }
+.axis--x line {
+    stroke: #aaa;
+}
 
-        .axis--game .tick line {
-            display: none;
-        }
+.axis--game .tick line {
+    display: none;
+}
 
-        .axis--game text {
-            font-size: 12px;
-            fill: #777;
-        }
+.axis--game text {
+    font-size: 12px;
+    fill: #777;
+}
 
-        .axis--game .tick:nth-child(odd) text {
-            fill: #222;
-        }
+.axis--game .tick:nth-child(odd) text {
+    fill: #222;
+}
 
-        .line {
-            fill: none;
-            stroke: #fff;
-        }
+.line {
+    fill: none;
+    stroke: #fff;
+}
 
+text {
+    transform: translateY(-30px);
+}
 
+.axis--x text {
+    transform: translateY(8px) translateX(8px) rotate(45deg);
+}
 
-        text {
-            transform: translateY(-30px);
-            }
+h1 {
+    color: white !important;
+    font-family: "DwarvenAxe BB";
+    width: auto;
+    margin: auto;
+    text-align: center;
+    padding: 30px;
+    font-size: 70px;
 
-        .axis--x text {
-            transform: translateY(8px) translateX(8px) rotate(45deg);
-        }
+}
 
-    h1
-    {
-    color: white;
-    font-weight: bold;
-    text-decoration: underline;
-    width:430px;
-    background-color: #ffffff;
-    margin:auto;
-    }
-
-
-    /*SWITCH BUTTON
+/*SWITCH BUTTON
 
 
 /* The switch - the box around the slider */
 .switch {
-    margin-left:auto;
+    margin-left: auto;
     margin-right: auto;
     position: relative;
-    padding-left:10px;
+    padding-left: 10px;
     display: inline-block;
     width: 60px;
     height: 34px;
 }
 
 /* Hide default HTML checkbox */
-.switch input {display:none;}
+.switch input {
+    display: none;
+}
 
 /* The slider */
 .slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: crimson;
-  -webkit-transition: .4s;
-  transition: .4s;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: crimson;
+    -webkit-transition: .4s;
+    transition: .4s;
 }
 
 .slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+    background-color: #2196F3;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+    box-shadow: 0 0 1px #2196F3;
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
 }
 
 /* Rounded sliders */
 .slider.round {
-  border-radius: 34px;
+    border-radius: 34px;
 }
 
 .slider.round:before {
-  border-radius: 50%;
+    border-radius: 50%;
 }
 
 #bouton {
-    padding: 20px;
+    padding: 10px;
     margin-left: auto;
     margin-right: auto;
     background-color: white;
+    margin: 10px;
+    border-radius: 10px;
 }
 
-#joyplot {padding-top: 30px}
+#joyplot {
+    padding-top: 30px
+}
 
 .loading {
     border: 16px solid #f3f3f3; /* Light grey */
@@ -156,13 +154,89 @@ input:checked + .slider:before {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
-.center-switch {margin: auto;
-                max-width: 250px}
+.center-switch {
+    margin: auto;
+    max-width: 250px
+}
 
-#variateur{
-    margin-left: 100px;
+#variateur {
+    margin: auto
+}
+
+#button {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.intro {
+    padding: 20px;
+    color: #0A5FAB !important;
+    font-weight: bold;
+    font-size: 20px;
+    text-shadow: 2px black;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.a-propos {
+    padding: 20px;
+    color: #0A5FAB !important;
+    font-weight: bold;
+    font-size: 20px;
+    text-shadow: 2px black;
+    background-color: white;
+    border-radius: 20px;
+    margin: 20px;
+}
+
+.jeux {
+    background-color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+}
+
+.col {
+    padding: 10px;
+}
+
+#bf3 {
+    color: #1f77b4
+}
+
+#cod {
+    color: #ff7f0e
+}
+
+#wow {
+    color: #7f7f7f
+}
+
+#sw {
+    color: #d62728
+}
+
+#lol {
+    color: #2ca02c
+}
+
+#minecraft {
+    color: #9467bd
+}
+
+#sc2 {
+    color: #e377c2
+
+}
+
+#skyrim {
+    color: #8c564b
 }
