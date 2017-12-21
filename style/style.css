@@ -189,8 +189,7 @@ input:checked + .slider:before {
 .a-propos {
     padding: 20px;
     color: #0A5FAB !important;
-    font-weight: bold;
-    font-size: 20px;
+    font-size: 15px;
     text-shadow: 2px black;
     background-color: white;
     border-radius: 20px;
