@@ -14,10 +14,10 @@ function draw_joy(dataFlat, streamer) {
     }
     var margin = {top: 30, right: 20, bottom: 80, left: 200},
         width = 900 - margin.left - margin.right,
-        height = 500 - margin.top - margin.bottom;
+        height = 760 - margin.top - margin.bottom;
 
     // Percent two area charts can overlap
-    // var overlap = 0.4;
+    var overlap = 0.4;
 
     var formatTime = d3.timeFormat("%d-%b-%Y");
 
@@ -84,7 +84,7 @@ function draw_joy(dataFlat, streamer) {
         return d.key;
     }));
 
-    var areaChartHeight = /* (1 + overlap) * */ (height / gameScale.domain().length);
+    var areaChartHeight = (1 + overlap) * (height / gameScale.domain().length);
 
     yScale
         .domain(d3.extent(dataFlat, y))
@@ -149,12 +149,11 @@ function row(d, f) {
 var dataFlat = [];
 
 var files = [
-    "Battlefield", "League of Legends",
-    "Star Wars", "The Elder Scrolls"
+    "Battlefield", "Call of Duty", "League of Legends", "Minecraft",
+    "Star Wars", "StarCraft II", "The Elder Scrolls", "World of Warcraft"
 
 ];
 var nloaded = 0;
-
 
 files.forEach(function (f) {
     d3.text("games-time-series/" + f + ".txt", function (data) {
@@ -181,7 +180,6 @@ files.forEach(function (f) {
         nloaded += 1;
     });
 });
-
 $("#loading").hide();
 setTimeout(is_loaded, 1000);
 

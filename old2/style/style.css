@@ -10,11 +10,7 @@ svg {
     margin-left: auto;
     margin-right: auto;
     border-radius: 15px;
-    border-top-left-radius: 0px;
     margin-bottom: 20px;
-    background-image: url("img/lol_back4.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
 }
 
 .axis .domain {
@@ -22,11 +18,11 @@ svg {
 }
 
 .axis--x text {
-    fill: #fff;
+    fill: #000;
 }
 
 .axis--x line {
-    stroke: #fff;
+    stroke: #aaa;
 }
 
 .axis--game .tick line {
@@ -35,11 +31,11 @@ svg {
 
 .axis--game text {
     font-size: 12px;
-    fill: #fff;
+    fill: #777;
 }
 
 .axis--game .tick:nth-child(odd) text {
-    fill: #fff;
+    fill: #222;
 }
 
 .line {
@@ -134,14 +130,12 @@ input:checked + .slider:before {
 }
 
 #bouton {
-    padding-top: 20px;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
     background-color: white;
-    margin-top: 10px;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-    padding-bottom: 20px;
+    margin: 10px;
+    border-radius: 10px;
 }
 
 #joyplot {
@@ -213,30 +207,35 @@ input:checked + .slider:before {
     padding: 10px;
 }
 
-#lol {
-    background-image: url("img/lol_mini.jpg");
-    width: 188px;
-    height: 60px;
-}
-
 #bf3 {
-    background-image: url("img/bf3_mini.jpg");
-    width: 188px;
-    height: 60px;
+    color: #1f77b4
 }
 
-#swtor {
-    background-image: url("img/swtor_mini.jpg");
-    width: 188px;
-    height: 60px;
+#cod {
+    color: #ff7f0e
 }
 
-#sky {
-    background-image: url("img/skyrim_mini.jpg");
-    width: 188px;
-    height: 60px;
+#wow {
+    color: #7f7f7f
 }
 
-#vertical{
-    padding-right: 20px;
+#sw {
+    color: #d62728
+}
+
+#lol {
+    color: #2ca02c
+}
+
+#minecraft {
+    color: #9467bd
+}
+
+#sc2 {
+    color: #e377c2
+
+}
+
+#skyrim {
+    color: #8c564b
 }

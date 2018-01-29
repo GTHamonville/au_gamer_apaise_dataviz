@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <meta charset="UTF-8">
-<>
+<html>
 
 <head>
     <title>Dataviz Au Gamer Apaise</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
           integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <link rel="stylesheet" href="style/bootstrap.css">
     <link rel="stylesheet" href="style/style.css"/>
-
 
 </head>
 
@@ -31,56 +29,60 @@
 </div>
 <div class="row">
     <div class="col-sm"></div>
-    <div id="bouton">
+    <div id="bouton" class="col-sm">
         <div class="row">
-            <button type="button" class="btn btn-primary" id="spec">Spectateurs</button>
+            <div class="col-sm text-center">Spectateurs</div>
             <div class="col-sm text-center">
-                <button type="button" class="btn btn-primary" id="strm">Streamers</button>
-                <!--
                 <div id="button">
                     <label id="variateur" class="switch">
                         <input id="cb" type="checkbox" name="change" onchange="reload(this)"/>
                         <span class="slider round"></span>
                     </label>
                 </div>
-                -->
-
             </div>
-            <button type="button" class="btn btn-primary" id="ratio">Ratio Spectateurs / Streamers</button>
+            <div class="col-sm text-center">Streamers</div>
         </div>
-        <div class="row" id="glissiere"><img id="gliss_img" src="style/img/glissiere_pos1.jpg"></div>
     </div>
-    <div class="col-sm"></div>
     <div class="col-sm"></div>
 </div>
 
 
 <div class="row">
-    <div class="col-sm"></div>
-    <div class="btn-group-vertical" id="vertical">
-        <button type="button" class="btn btn-primary" id="lol"></button>
-        <br>
-        <button type="button" class="btn btn-primary" id="bf3"></button>
-        <br>
-        <button type="button" class="btn btn-primary" id="swtor"></button>
-        <br>
-        <button type="button" class="btn btn-primary" id="sky"></button>
-    </div>
-    <svg id="joyplot" width="1000" height="600"></svg>
-    <div class="col-sm"></div>
+    <svg id="joyplot" width="1000" height="760"></svg>
 </div>
 
 
 <div class="jeux">
     <div class="row">
         <div class="col-1"></div>
-        <div class="col"><b>Battlefield 3:</b> La beta du jeu sortie fin septembre a permis à beaucoup de gens
+        <div id="bf3" class="col"><b>Battlefield 3:</b> La beta du jeu sortie fin septembre a permis à beaucoup de gens
             de
             tester le
             jeu,
             d'où le pic avant la sortie officielle du titre. En revanche, si la release attire un grand nombre de
             viewers
             sur Twitch au début, ce nombre diminue rapidement et les DLCS n'aideront pas vraiment à rétablir le cap.
+        </div>
+        <div class="col-1"></div>
+        <div id="cod" class="col"><b>Call of duty MW3:</b> lors de sa sortie le 8 novembre 2011, MW3 est très populaire
+            sut
+            Twitch, et
+            même
+            si avec le temps la fréquentation s'estompe légèrement, la communauté de viewers reste assez importante au
+            cours
+            des premiers mois.
+        </div>
+        <div class="col-1"></div>
+    </div>
+    <div class="row">
+        <div class="col-1"></div>
+        <div id="wow" class="col"><b>World of Warcraft:</b> Wow est sorti en 2004 et l'année 2011 n'a pas accuelli
+            d'extension du jeu.
+            Pourtant, il est intéressant de montrer que malgré son âge au moment où ces stats ont été récupérées, le
+            nombre
+            de viewers reste sensiblement le même en toutes circonstances. Encore aujourd'hui, WOW reste souvent dans le
+            top
+            10 Twitch.
         </div>
         <div class="col-1"></div>
         <div id="sw" class="col"><b>Star Wars: The Old Republic:</b> Ouvert aux joueurs le 20 décembre 2011, Star Wars :
@@ -96,13 +98,36 @@
 
     <div class="row">
         <div class="col-1"></div>
-        <div class="col"><b>League of Legends:</b> Ayant vu le jour dès 2009 (le 27 octobre), "LOL" est
+        <div id="lol" class="col"><b>League of Legends:</b> Ayant vu le jour dès 2009 (le 27 octobre), "LOL" est
             toujours
             resté
             populaire :
             on peut très clairement le voir sur la courbe lui correspondant. Là encore, le fait que ce soit un jeu
             multijoueur gratuit et facile à comprendre avec un potentiel E-sport très fort a contribué à son succès sur
             Twitch (encore aujourd'hui, il rafle régulièrement la première place sur la plateforme de diffusion).
+        </div>
+        <div class="col-1"></div>
+        <div id="minecraft" class="col"><b>Minecraft:</b> Après une une phase beta d’un an, la release officielle du jeu
+            le 19
+            novembre 2011
+            a
+            légèrement fait augmenter le nombre de spectateurs. Minecraft reste un jeu de niche, qui a toujours su
+            conserver
+            une base de fans assez constante, notamment grâce aux nombreuses possibilités offertes par le "modding".
+        </div>
+        <div class="col-1"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-1"></div>
+        <div id="sc2" class="col"><b>StarCraft 2:</b> Le jeu était sorti depuis plus d'un an déjà au moment où nos
+            statistiques ont été
+            enregistrées. En revanche, il reste très intéressant de noter que, même après une période assez longue, le
+            jeu
+            est resté très populaire sur Twitch (étant en tête de notre comparatif en termes de nombre de viewers).
+            Mieux,
+            ce nombre était en augmentation sur la fin de l'année 2011. Cela est principalement dû au développement de
+            l'E-sport sur le jeu qui en a fait un véritable phénomène qui reste encore aujourd'hui dans la légende.
         </div>
         <div class="col-1"></div>
         <div id="skyrim" class="col"><b>The Elder Scrolls V - Skyrim:</b> Si Skyrim est aujourd'hui considéré comme un
@@ -144,7 +169,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
         integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
         crossorigin="anonymous"></script>
-<script src="scripts/button_bg_change.js"></script>
 <script>
     reload($("#cb"));
 </script>
