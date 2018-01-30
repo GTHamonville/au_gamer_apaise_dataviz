@@ -18,33 +18,31 @@ svg {
 }
 
 .axis .domain {
-    display: none;
+    /*display: none;*/
+    stroke: #ccc;
+
 }
 
 .axis--x text {
-    fill: #fff;
+    fill: #ccc;
 }
 
 .axis--x line {
-    stroke: #fff;
+    stroke: #ccc;
 }
 
 .axis--game .tick line {
-    display: none;
+    /*display: none;*/
 }
 
 .axis--game text {
     font-size: 12px;
-    fill: #fff;
-}
-
-.axis--game .tick:nth-child(odd) text {
-    fill: #fff;
+    fill: #ccc;
 }
 
 .line {
     fill: none;
-    stroke: #fff;
+    stroke: #000;
 }
 
 text {
@@ -52,7 +50,7 @@ text {
 }
 
 .axis--x text {
-    transform: translateY(8px) translateX(8px) rotate(45deg);
+    transform: translateY(22px) translateX(25px) rotate(45deg);
 }
 
 h1 {

@@ -4,18 +4,26 @@ var parse_time_csv = d3.timeParse("%Y/%m/%d %H");
 var format = d3.timeFormat("%Y-%m-%d");
 var parse = d3.timeParse("%Y-%m-%d");
 
-function draw_joy(dataFlat, streamer) {
+function draw_chart(dataFlat, type) {
 
     $("#joyplot").html("");
     $("#loading").show();
-    var key = "nb_spec_avg";
-    if (streamer) {
+
+    var key;
+    if (type == "spec") {
+        key = "nb_spec_avg";
+    } else if (type == "stream") {
         key = "nb_streamer_avg";
+    } else if (type == "ratio") {
+        key = "ratio";
     }
-    var margin = {top: 30, right: 20, bottom: 80, left: 200},
+    var margin = {top: 60, right: 30, bottom: 60, left: 120},
         width = 900 - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
 
+    console.log(dataFlat);
+    console.log(key);
+    console.log(type);
     // Percent two area charts can overlap
     // var overlap = 0.4;
 
@@ -24,7 +32,8 @@ function draw_joy(dataFlat, streamer) {
     var svg = d3.select('#joyplot').append('svg')
         .attr('width', width + margin.left + margin.right)
         .attr('height', height + margin.top + margin.bottom)
-        .append('g')
+
+    var g = svg.append('g')
         .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
     var x = function (d) {
@@ -43,15 +52,7 @@ function draw_joy(dataFlat, streamer) {
         yValue = function (d) {
             return yScale(y(d));
         };
-
-    var game = function (d) {
-            return d.key;
-        },
-        gameScale = d3.scaleBand().range([0, height]),
-        gameValue = function (d) {
-            return gameScale(game(d));
-        },
-        gameAxis = d3.axisLeft(gameScale);
+    yAxis = d3.axisLeft(yScale).ticks(6);
 
     var area = d3.area()
         .x(xValue)
@@ -61,92 +62,56 @@ function draw_joy(dataFlat, streamer) {
     var line = area.lineY1()
         .curve(curve_type);
 
-    var data = d3.nest()
-        .key(function (d) {
-            return d.game;
-        })
-        .entries(dataFlat);
-
-    // Sort activities by peak game time
-
-    function peakTime(d) {
-        var i = d3.scan(d.values, function (a, b) {
-            return y(b) - y(a);
-        });
-        return d.values[i].time;
-    };
-    //data.sort(function (a, b) {
-    //    return peakTime(a) - peakTime(b);
-    //});
     xScale.domain(d3.extent(dataFlat, x));
 
-    gameScale.domain(data.map(function (d) {
-        return d.key;
-    }));
-
-    var areaChartHeight = /* (1 + overlap) * */ (height / gameScale.domain().length);
-
     yScale
-        .domain(d3.extent(dataFlat, y))
-        .range([areaChartHeight, 0]);
+        .domain([0, d3.max(dataFlat, y)])
+        .range([height, 0]);
 
     area.y0(yScale(0));
 
-    svg.append('g').attr('class', 'axis axis--x')
-        .attr('transform', 'translate(0,' + height + ')')
-        .call(xAxis)
-        .selectAll("text")
 
-    svg.append('g').attr('class', 'axis axis--game')
-        .call(gameAxis);
+    var game = g.append('g')
+        .attr('class', 'game');
 
-    var ggame = svg.append('g').attr('class', 'games')
-        .selectAll('.game').data(data)
-        .enter().append('g')
-        .attr('class', function (d) {
-            return 'game game--' + d.key;
-        })
-        .attr('transform', function (d) {
-            var ty = gameValue(d) - gameScale.bandwidth() + 5;
-            return 'translate(0,' + ty + ')';
-        });
-
-    ggame.append('path').attr('class', 'area')
+    game.append('path').attr('class', 'area')
         .datum(function (d) {
-            return d.values;
+            return dataFlat;
         })
         .attr("fill", function (d, i) {
             return color(i);
         })
         .attr('d', area);
 
-    ggame.append('path').attr('class', 'line')
+    game.append('path').attr('class', 'line')
         .datum(function (d) {
-            return d.values;
+            return dataFlat;
         })
         .attr('d', line);
+
+    g.append('g').attr('class', 'axis axis--x')
+        .attr('transform', 'translate(0,' + (height) + ')')
+        .call(xAxis);
+
+    g.append('g').attr('class', 'axis axis--game')
+        .call(yAxis);
 }
 
-function reload(d) {
-
-    if (d.checked) {
-        draw_joy(dataFlat, true);
-    } else {
-        draw_joy(dataFlat, false);
-    }
+function reload() {
+    draw_chart(dataFlat[current_game], current_type)
 }
 
 function row(d, f) {
     return {
-        game: f,
         time: parse(d.key),
         nb_streamer_avg: +d.value['nb_streamer_avg'],
-        nb_spec_avg: +d.value['nb_spec_avg']
+        nb_spec_avg: +d.value['nb_spec_avg'],
+        ratio: +d.value['ratio']
     };
 }
 
 
-var dataFlat = [];
+var dataFlat = {};
 
 var files = [
     "Battlefield", "League of Legends",
@@ -155,9 +120,11 @@ var files = [
 ];
 var nloaded = 0;
 
+$(".game_btn").prop("disabled", true);
 
 files.forEach(function (f) {
     d3.text("games-time-series/" + f + ".txt", function (data) {
+        dataFlat[f] = [];
         var d = d3.csvParseRows(data);
 
         nested_data = d3.nest()
@@ -171,12 +138,19 @@ files.forEach(function (f) {
                     }),
                     'nb_streamer_avg': d3.mean(leaves, function (d) {
                         return d[2];
+                    }),
+                    'ratio': d3.mean(leaves, function (d) {
+                        if (d[2] > 0){
+                            return d[1]/d[2];
+                        } else {
+                            return 0;
+                        }
                     })
                 }
             }).entries(d);
 
         nested_data.forEach(function (d) {
-            dataFlat.push(row(d, f));
+            dataFlat[f].push(row(d, f));
         });
         nloaded += 1;
     });
@@ -188,8 +162,10 @@ setTimeout(is_loaded, 1000);
 function is_loaded() {
     if (nloaded == files.length) {
         // Draw the joy chart
-        draw_joy(dataFlat);
+        $(".game_btn").prop("disabled", false);
         $("#loading").hide();
+        $('#joyplot').css('background-image', 'url(style/img/lolv2.jpg)');
+        reload(dataFlat["League of Legends"], current_type);
     } else {
         setTimeout(is_loaded, 1000);
     }
