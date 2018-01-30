@@ -4,28 +4,19 @@ var parse_time_csv = d3.timeParse("%Y/%m/%d %H");
 var format = d3.timeFormat("%Y-%m-%d");
 var parse = d3.timeParse("%Y-%m-%d");
 
-function draw_chart(dataFlat, type) {
+function draw_chart(dataFlat, dataType) {
 
     $("#joyplot").html("");
     $("#loading").show();
 
     var key;
-    if (type == "spec") {
+    if (dataType == "spec") {
         key = "nb_spec_avg";
-    } else if (type == "stream") {
+    } else if (dataType == "stream") {
         key = "nb_streamer_avg";
-    } else if (type == "ratio") {
+    } else if (dataType == "ratio") {
         key = "ratio";
     }
-    var margin = {top: 60, right: 30, bottom: 60, left: 120},
-        width = 900 - margin.left - margin.right,
-        height = 500 - margin.top - margin.bottom;
-
-    console.log(dataFlat);
-    console.log(key);
-    console.log(type);
-    // Percent two area charts can overlap
-    // var overlap = 0.4;
 
     var formatTime = d3.timeFormat("%d-%b-%Y");
 
@@ -95,6 +86,25 @@ function draw_chart(dataFlat, type) {
 
     g.append('g').attr('class', 'axis axis--game')
         .call(yAxis);
+
+
+    const makeAnnotations = d3.annotation()
+    //Gives you access to any data objects in the annotations array
+        .accessors({
+            x: function (d) {
+                return xScale(parse(d.x))
+            },
+            y: function (d) {
+                return yScale(d.y)
+            }
+        })
+        .annotations(annotations[current_game][current_type])
+        .textWrap(30);
+
+    d3.select("svg")
+        .append("g")
+        .attr("class", "annotation-group")
+        .call(makeAnnotations)
 }
 
 function reload() {
@@ -140,8 +150,8 @@ files.forEach(function (f) {
                         return d[2];
                     }),
                     'ratio': d3.mean(leaves, function (d) {
-                        if (d[2] > 0){
-                            return d[1]/d[2];
+                        if (d[2] > 0) {
+                            return d[1] / d[2];
                         } else {
                             return 0;
                         }
@@ -165,7 +175,7 @@ function is_loaded() {
         $(".game_btn").prop("disabled", false);
         $("#loading").hide();
         $('#joyplot').css('background-image', 'url(style/img/lolv2.jpg)');
-        reload(dataFlat["League of Legends"], current_type);
+        reload();
     } else {
         setTimeout(is_loaded, 1000);
     }
