@@ -1,5 +1,26 @@
 var curve_type = d3.curveMonotoneX;
-var color = d3.scaleOrdinal(d3.schemeCategory10);
+var colors = {
+    "League of Legends": {
+        "spec": "#f00",
+        "stream": "#ff0",
+        "ratio": "#fff",
+    },
+    "Battlefield": {
+        "spec": "#f00",
+        "stream": "#ff0",
+        "ratio": "#fff",
+    },
+    "Star Wars": {
+        "spec": "#f00",
+        "stream": "#ff0",
+        "ratio": "#fff",
+    },
+    "The Elder Scrolls": {
+        "spec": "#f00",
+        "stream": "#ff0",
+        "ratio": "#fff",
+    },
+}
 var parse_time_csv = d3.timeParse("%Y/%m/%d %H");
 var format = d3.timeFormat("%Y-%m-%d");
 var parse = d3.timeParse("%Y-%m-%d");
@@ -70,7 +91,7 @@ function draw_chart(dataFlat, dataType) {
             return dataFlat;
         })
         .attr("fill", function (d, i) {
-            return color(i);
+            return colors[current_game][current_type];
         })
         .attr('d', area);
 
@@ -101,8 +122,7 @@ function draw_chart(dataFlat, dataType) {
         .annotations(annotations[current_game][current_type])
         .textWrap(30);
 
-    d3.select("svg")
-        .append("g")
+   g.append("g")
         .attr("class", "annotation-group")
         .call(makeAnnotations)
 }
@@ -144,14 +164,14 @@ files.forEach(function (f) {
             .rollup(function (leaves) {
                 return {
                     'nb_spec_avg': d3.mean(leaves, function (d) {
-                        return d[1];
-                    }),
-                    'nb_streamer_avg': d3.mean(leaves, function (d) {
                         return d[2];
                     }),
+                    'nb_streamer_avg': d3.mean(leaves, function (d) {
+                        return d[1];
+                    }),
                     'ratio': d3.mean(leaves, function (d) {
-                        if (d[2] > 0) {
-                            return d[1] / d[2];
+                        if (d[1] > 0) {
+                            return d[2] / d[1];
                         } else {
                             return 0;
                         }
@@ -174,7 +194,6 @@ function is_loaded() {
         // Draw the joy chart
         $(".game_btn").prop("disabled", false);
         $("#loading").hide();
-        $('#joyplot').css('background-image', 'url(style/img/lolv2.jpg)');
         reload();
     } else {
         setTimeout(is_loaded, 1000);
