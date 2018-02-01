@@ -1,3 +1,5 @@
+div#preload { display: none; }
+
 body {
 
     background-image: url("wood_texture.jpg");
@@ -247,6 +249,12 @@ input:checked + .slider:before {
 
 #glissiere {
     background-image: url("style/img/glissiere_pos1.jpg")
+}
+
+#gl_vert{
+    background-color: white;
+    padding-top: 30px;
+    height: 360px;
 }
 
 /*
