@@ -303,7 +303,7 @@ var annotations = {
         "ratio": [
             {
                 note: {
-                    label: "Ces deux pics se sont déroulés juste avant la béta. Il y a fort à parier qu'il s'agissait des développeurs du jeu pour présenter ce qu'ils ont fait juste avant de commencer la béta",
+                    label: "Ces deux pics se sont déroulés juste avant la béta. Il y a fort à parier qu'il s'agissait des développeurs du jeu pour présenter le jeu juste avant l'ouverture de la béta",
                     lineType: "none",
                     orientation: "leftRight",
                     "align": "middle",
