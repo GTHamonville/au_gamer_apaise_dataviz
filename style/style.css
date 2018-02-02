@@ -1,4 +1,6 @@
-div#preload { display: none; }
+div#preload {
+    display: none;
+}
 
 body {
 
@@ -26,10 +28,6 @@ svg {
 
 }
 
-.axis--x text {
-    fill: #ccc;
-}
-
 .axis--x line {
     stroke: #ccc;
 }
@@ -41,6 +39,7 @@ svg {
 .axis--game text {
     font-size: 12px;
     fill: #ccc;
+    transform: translateY(-2px);
 }
 
 .line {
@@ -54,6 +53,8 @@ text {
 
 .axis--x text {
     transform: translateY(22px) translateX(25px) rotate(45deg);
+    fill: #ccc;
+    font-size: 11px;
 }
 
 @font-face {
@@ -258,7 +259,7 @@ input:checked + .slider:before {
     background-image: url("style/img/glissiere_pos1.jpg")
 }
 
-#gl_vert{
+#gl_vert {
     background-color: white;
     padding-top: 30px;
     height: 360px;
@@ -270,8 +271,8 @@ Annotations
 
 :root {
     --line-chart-color: #607D8B;
-    --annotation-context-color: #88e747;
-    --annotation-above-color: #00ffbf;
+    --annotation-context-color: #76bcff;
+    --annotation-above-color: #ffce9b;
     --annotation-anomaly-color: #ddd;
 }
 
