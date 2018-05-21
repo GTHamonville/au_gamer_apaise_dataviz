@@ -2,6 +2,11 @@ div#preload {
     display: none;
 }
 
+@font-face {
+    font-family: "DwarvenAxe BB";
+    src: url('DwarvenAxe.ttf');
+}
+
 body {
 
     background-image: url("wood_texture.jpg");
