@@ -211,7 +211,7 @@ input:checked + .slider:before {
     margin-bottom: 0px;
 }
 
-.a-propos {
+#savoir-plus {
     padding: 20px;
     color: #0A5FAB !important;
     font-size: 15px;
