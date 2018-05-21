@@ -6531,6 +6531,11 @@ button.close {
   display: block;
   margin-right: auto;
   margin-left: auto;
+  background-color: white;
+    border-radius: 5px;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 .pull-right {
   float: right !important;
